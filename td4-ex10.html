@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        img {
+            width: 350px;
+            height: 350px;
+            border: red solid 2px;
+            margin-left: 100px;
+            margin-top: 20px;
+        }
+        #para {
+            color: black;
+            font-weight: 800;
+            font-size: 30px;
+        }
+        span{
+            color: red;
+            animation-name: anime;
+            animation-duration: .7s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        @keyframes anime {
+            0% {
+                width: 0;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="div">
+        <p id="para">waite 2 seconds<span>...</span></p>
+    </div>
+    <script>
+        const site = "https://picsum.photos/id/237/200/300"
+        
+        const fuct = async () => {
+            for(i = 0; i < 12; i++){
+                const div  = document.getElementById("div")
+                const para = document.getElementById('para')
+                const image = document.createElement('img')
+                para.style.display = "none"
+                // div.appendChild(para)
+                div.appendChild(image)
+                image.setAttribute('src', site)
+                // para.textContent = `c'est l'image nombre ${i+1}`
+                const randomedNumber = Math.floor(Math.random()*500)
+                image.src = `https://picsum.photos/id/${randomedNumber}/200/300`
+            }
+        }
+        setTimeout(fuct, 2000)
+       
+    </script>
+</body>
+</html
